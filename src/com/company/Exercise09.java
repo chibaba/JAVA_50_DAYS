@@ -6,8 +6,8 @@ public class Exercise09 {
         String taste = "way too hot";
 
         switch(taste) {
-            too cold": tempAdjustment +=1;
-                break:
+            //too cold": tempAdjustment +=1;
+             //   break:
             case "way too hot": tempAdjustment -= 1;
             break;
             case "too hot":   tempAdjustment -= 1;
