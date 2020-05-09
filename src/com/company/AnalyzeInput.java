@@ -11,7 +11,7 @@ public class AnalyzeInput {
         while (!line.equals("*")
         && (cons = System.console()) != null
         && (line = cons.readLine()) !=null) {
-            List<String> lineList = new ArrayList<String>(Arrays.asLIst(line.split("")));
+            List<String> lineList = new ArrayList<String> (Arrays.asList(line.split("")));
             text.addAll(lineList);
         }
         System.out.println("You typed: "+ text);
