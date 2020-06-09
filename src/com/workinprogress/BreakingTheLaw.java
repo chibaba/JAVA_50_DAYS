@@ -21,7 +21,7 @@ public class BreakingTheLaw {
         try {
             System.out.println(s.length());
         } catch (NullPointerException ne) {
-            throw new MyException("Exception: my exception happened");
+           // throw new MyException("Exception: my exception happened");
         }
     }
 }
