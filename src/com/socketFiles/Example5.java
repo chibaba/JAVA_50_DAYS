@@ -20,3 +20,6 @@ public class Example5 {
         }
     }
 }
+//Files.walk() will extract the directory structure up to a certain depth,
+// in our case, one. The depth represents how many levels of subdirectories your
+// code will be digging into.
