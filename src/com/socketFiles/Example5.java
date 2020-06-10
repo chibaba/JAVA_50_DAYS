@@ -13,6 +13,10 @@ public class Example5 {
         List<Path> subDirectories = Files.walk(Paths.get(pathString), 1)
                 .filter(Files::isDirectory)
                 .collect(Collectors.toList());
-        for ()
+        for (int i = 0; i < 5; i++) {
+            Path filePath = subDirectories.get(i);
+            String fileType = Files.isDirectory(filePath) ? "Dir" : "File";
+            System.out.println(fileType + " " + filePath);
+        }
     }
 }
