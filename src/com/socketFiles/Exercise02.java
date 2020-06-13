@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Properties;
 
 public class Exercise02 {
@@ -40,12 +42,24 @@ public class Exercise02 {
         } catch (FileNotFoundException fnfe) {
             System.out.println("WARNING: could not find the properties file");
         } catch (IOException ioe) {
-            System .out.println("WARNING: problem processing the properties file");
+            System.out.println("WARNING: problem processing the properties file");
         } finally {
             if (fileOutputStream != null) {
                 fileOutputStream.close();
             }
         }
     }
+        public static  void main(String[] args) {
+            // take first argument as the file to open. By default
+            // I will be using the temporary folder
+            String pathString  = System.getProperty("user.home") + "/javaTemp/" + args[0];
+
+            // creating the property object
+            Path pathFile = Paths.get(pathString);
+
+            // if the property file exists, load the file into the property object
+            if (Files.exists(pathFile))
+        }
+
 
 }
