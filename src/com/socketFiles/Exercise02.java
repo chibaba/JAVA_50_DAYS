@@ -7,9 +7,17 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Enumeration;
 import java.util.Properties;
 
 public class Exercise02 {
+    public static void PrintOutProperties(Properties properties) {
+        Enumeration keys = properties.keys();
+        for (int i = 0; i < properties.size(); i++) {
+            String key = keys.nextElement().toString();
+            System.out.println( key + ": " +properties.getProperty(key));
+        }
+    }
 //    if (Files.exists(pathFile)) {
 //        properties = LoadProperties(pathString);
 //    }
@@ -53,12 +61,32 @@ public class Exercise02 {
             // take first argument as the file to open. By default
             // I will be using the temporary folder
             String pathString  = System.getProperty("user.home") + "/javaTemp/" + args[0];
-
-            // creating the property object
             Path pathFile = Paths.get(pathString);
 
+
+            // creating the property object
+            Properties properties = new Properties();
+
             // if the property file exists, load the file into the property object
-            if (Files.exists(pathFile))
+            if (Files.exists(pathFile)) {
+                try {
+                    properties = LoadProperties(pathString);
+                } catch (IOException ioe) {
+                    System.out.println("WARNING: problem closing the file to the stream");
+                }
+            }
+            // iterating through the rest of the property object and add them to the property object
+            for (int i = 1; i < args.length; i++) {
+                String [] keyValue = args[i].split(" ");
+                properties.setProperty(keyValue[0], keyValue[1]);
+            }
+            try {
+                WriteProperties(pathString, properties);
+            } catch (IOException ioe) {
+                System.out.println("warning: problem while closing property file");
+            }
+            // printing out the final result of the system
+            PrintOutProperties(properties);
         }
 
 
