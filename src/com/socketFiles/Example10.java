@@ -1,6 +1,7 @@
 package com.socketFiles;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -21,6 +22,8 @@ public class Example10 {
         try {
             fileStream = new FileInputStream(pathString);
             PrintOutProperties(fileStream);
-        } catch
+        } catch (FileNotFoundException fnfe) {
+            System.out.println()
+        }
     }
 }
