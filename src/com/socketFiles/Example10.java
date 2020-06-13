@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class Example10 {
-    public static void PrintOutProperties(FileInputStream) throws IOException {
+    public static void PrintOutProperties(FileInputStream fileStream) throws IOException {
         Properties properties = new Properties();
         properties.load(fileStream);
         System.out.println("name: "+ properties.getProperty("name"));
@@ -23,7 +23,11 @@ public class Example10 {
             fileStream = new FileInputStream(pathString);
             PrintOutProperties(fileStream);
         } catch (FileNotFoundException fnfe) {
-            System.out.println()
+            System.out.println("WARNING: problem processing the property file");
+        } finally {
+            if (fileStream != null) {
+                fileStream.close();
+            }
         }
     }
 }
