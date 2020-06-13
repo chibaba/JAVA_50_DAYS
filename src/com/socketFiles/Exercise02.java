@@ -2,21 +2,22 @@ package com.socketFiles;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.Properties;
 
 public class Exercise02 {
-    if (Files.exists(pathFile)) {
-        properties = LoadProperties(pathString);
-    }
+//    if (Files.exists(pathFile)) {
+//        properties = LoadProperties(pathString);
+//    }
     public static Properties LoadProperties (String pathString) throws IOException {
         Properties properties = new Properties();
         FileInputStream fileInputStream = null;
 
         try {
             fileInputStream = new FileInputStream(pathString);
-            properties.load(fileInputStream)
+            properties.load(fileInputStream);
         } catch (FileNotFoundException fnfe) {
             System.out.println("WARNING: could not find the properties file");
         } catch (IOException ioe) {
@@ -28,4 +29,23 @@ public class Exercise02 {
         }
         return  properties;
     }
+    public static void WriteProperties(String pathString, Properties properties)
+        throws IOException {
+        FileOutputStream fileOutputStream = null;
+        try {
+            fileOutputStream = new FileOutputStream(pathString);
+            // write the resulting  properties object back to the file
+            // add  the comment the timestamp to the latest modification mode
+            properties.store(fileOutputStream, "modified on" + java.time.LocalDate.now());
+        } catch (FileNotFoundException fnfe) {
+            System.out.println("WARNING: could not find the properties file");
+        } catch (IOException ioe) {
+            System .out.println("WARNING: problem processing the properties file");
+        } finally {
+            if (fileOutputStream != null) {
+                fileOutputStream.close();
+            }
+        }
+    }
+
 }
