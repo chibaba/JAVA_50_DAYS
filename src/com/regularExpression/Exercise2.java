@@ -12,7 +12,9 @@ public class Exercise2 {
         boolean foundMatches = matcher.find();
         if (foundMatches) {
             String protocol = matcher.group(1);
+            String domain = matcher.group(2);
             System.out.println("Protocol: " + protocol);
+            System.out.println("domain: " + domain);
         }
     }
 }
