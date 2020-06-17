@@ -10,5 +10,9 @@ public class Exercise2 {
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(url);
         boolean foundMatches = matcher.find();
+        if (foundMatches) {
+            String protocol = matcher.group(1);
+            System.out.println("Protocol: " + protocol);
+        }
     }
 }
