@@ -14,6 +14,9 @@ public class Exercise3 {
         }
         try {
             process.waitFor(5, TimeUnit.SECONDS);
+        } catch (InterruptedException ie) {
+            System.out.println("WARNING: interruption happened");
         }
+        process.destroy();
     }
 }
