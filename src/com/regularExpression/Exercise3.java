@@ -10,6 +10,7 @@ public class Exercise3 {
         String filePath  = System.getProperty("user.dir") + File.separator + "res" + File.separator + "packt.txt";
         try  {
             String packtDump = new String(Files.readAllBytes(Paths.get(filePath)));
+            String regex = "(?:<a href=\")";
         } catch (IOException e) {
             e.printStackTrace();
         }
