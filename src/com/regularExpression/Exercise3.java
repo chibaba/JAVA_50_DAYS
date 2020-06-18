@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -15,6 +17,7 @@ public class Exercise3 {
             String regex = "(?:<a href=\") ([^\"] +)(?:\"{1})";
             Pattern pattern = Pattern.compile(regex);
             Matcher matcher = pattern.matcher(packtDump);
+            List<String > links = new ArrayList<>();
         } catch (IOException e) {
             e.printStackTrace();
         }
