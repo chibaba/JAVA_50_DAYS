@@ -18,6 +18,9 @@ public class Exercise3 {
             Pattern pattern = Pattern.compile(regex);
             Matcher matcher = pattern.matcher(packtDump);
             List<String > links = new ArrayList<>();
+            while (matcher.find()) {
+                links.add(matcher.group(1));
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
