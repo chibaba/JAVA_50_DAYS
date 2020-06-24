@@ -10,6 +10,11 @@ public class Exercise2 {
         ShoppingCart mySecondCart = myFirstCart.addItem(new ShoppingItem("laptop", 234));
         ShoppingCart myThirdCart = mySecondCart.addItem(new ShoppingItem( "break", 600));
 
+        System.out.println("First" + myFirstCart);
+        System.out.println("Second" + mySecondCart);
+        System.out.println("Third" + mySecondCart);
+
+
     }
 
     public static final class ShoppingCart {
@@ -25,7 +30,14 @@ public class Exercise2 {
                 newList.add(item);
                 return new ShoppingCart(newList);
             }
+
+        @Override
+        public String toString() {
+            return "ShoppingCart" +
+                    "myShoppingList=" + myShoppingList +
+                    '}';
         }
+    }
 
         private static final class ShoppingItem {
             private final String name;
