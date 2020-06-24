@@ -1,27 +1,29 @@
 package com.Lambda;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Exercise2 {
     public static void main(String[] args ) {
+        ShoppingCart myFirstCart = new ShoppingCart(new ArrayList<>());
+        ShoppingCart mySecondCart = myFirstCart.addItem(new ShoppingItem("laptop", 234));
+        ShoppingCart myThirdCart = mySecondCart.addItem(new ShoppingItem( "break", 600));
 
     }
 
     public static final class ShoppingCart {
 
-
-        private static final class ShoppingCart {
             public final List<ShoppingItem> myShoppingList;
 
             public ShoppingCart(List<ShoppingItem> list) {
-                myShoppingList = collections.unmodifiableList(list)
+                myShoppingList = Collections.unmodifiableList(list);
             }
 
             public ShoppingCart addItem(ShoppingItem item) {
                 List<ShoppingItem> newList = new ArrayList<>(myShoppingList);
                 newList.add(item);
-                return new ShoppingCart(newList)
+                return new ShoppingCart(newList);
             }
         }
 
@@ -35,4 +37,4 @@ public class Exercise2 {
             }
         }
     }
-}
+
