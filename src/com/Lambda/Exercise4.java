@@ -12,10 +12,14 @@ public class Exercise4 {
                 new Tire(18),
                 new Tire(24),
                 new Tire(12));
-        Comparator<Tire> sorter = (t1, t2) -> t2.size - t1.size;
-        List<Tire> sorted = new ArrayList<>(tires);
-        sorted.sort(sorter);
+        List<Tire> sorted = getSortedList(tires);
         System.out.println(sorted);
+    }
+      private static List<Tire> getSortedList(List<Tire> tires) {
+          List<Tire> sorted = new ArrayList<>(tires);
+          sorted.sort((t1, t2) ->t2.size - t1.size);
+          return List.copyOf(sorted);
+
     }
         private static final class Tire {
             private final int size;
