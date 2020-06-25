@@ -11,11 +11,12 @@ public class Example5 {
     public static void main(String[] args) throws IOException {
         String pathString = System.getProperty("user.home");
         List<Path> subDirectories = Files.walk(Paths.get(pathString), 1)
-                .filter(Files::isDirectory)
+                .filter(Files::isRegularFile)
                 .collect(Collectors.toList());
         for (int i = 0; i < 5; i++) {
             Path filePath = subDirectories.get(i);
-            String fileType = Files.isDirectory(filePath) ? "Dir" : "File";
+            String fileType = Files.isRegularFile(filePath) ? "Dir" : "File";
+            if (filePath.endsWith("."))
             System.out.println(fileType + " " + filePath);
         }
     }
