@@ -21,7 +21,7 @@ public class Factorial {
 
 
     }
-    public static BigInteger fibonaccci(BigInteger digit) {
+    public static BigInteger fibonacci(BigInteger digit) {
         if (digit.equals(BigInteger.ZERO)|| digit.equals(BigInteger.ONE)) {
 
             return digit;
