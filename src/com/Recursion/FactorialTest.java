@@ -25,6 +25,13 @@ class FactorialTest {
     }
     @Test
     void FactorialWithBigInteger() {
-        BigInteger = o
+        BigInteger ourNumber = new BigInteger("5");
+        BigInteger answer = Calculator.factorial(ourNumber);
+        assertEquals(120, answer.intValue());
+    }
+    @Test
+    void fibonacciTest() {
+        BigInteger
+
     }
 }

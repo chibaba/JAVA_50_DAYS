@@ -13,7 +13,20 @@ public class Factorial {
         }
     }
     public static BigInteger factorial(BigInteger number) {
+        if(number.compareTo(BigInteger.ONE) <= BigInteger.ZERO.intValue()) {
+            return BigInteger.ONE;
+        } else {
+            return number.multiply(factorial(number.subtract(BigInteger.ONE)));
+        }
 
 
+    }
+    public static BigInteger fibonaccci(BigInteger digit) {
+        if (digit.equals(BigInteger.ZERO)|| digit.equals(BigInteger.ONE)) {
+
+            return digit;
+        } else {
+            return fibonacci(digit.subtract(BigInteger.ONE))
+        }
     }
 }
