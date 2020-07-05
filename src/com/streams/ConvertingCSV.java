@@ -10,6 +10,13 @@ import java.util.stream.Stream;
 
 public class ConvertingCSV {
     public static void main(String[] args) {
+        try {
+            List<ShoppingArticle> database = loadDatabaseFile();
+            System.out.println(database);
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
 
     }
     private static class ShoppingArticle {
