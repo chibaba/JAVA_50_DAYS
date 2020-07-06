@@ -21,4 +21,8 @@ public class SpecificSearch {
         this.unit = unit;
 
     }
+    @Override
+    public String toString() {
+        return name + "(" + Category +")";
+    }
 }
