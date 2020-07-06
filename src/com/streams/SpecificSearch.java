@@ -6,14 +6,19 @@ package com.streams;
 //        Build a function that will find the five most expensive articles in the database.
 
 
+import java.util.Comparator;
+import java.util.List;
+
 public class SpecificSearch {
     final String name;
-    final String  Category;
+    final String Category;
     final double price;
     final String unit;
+
     public static void main(String[] args) {
 
     }
+
     private SpecificSearch(String name, String Category, double price, String unit) {
         this.name = name;
         this.Category = Category;
@@ -21,8 +26,23 @@ public class SpecificSearch {
         this.unit = unit;
 
     }
+
     @Override
     public String toString() {
-        return name + "(" + Category +")";
+        return name + "(" + Category + ")";
+    }
+
+
+    private static SpecificSearch findCheapestFruit(List<SpecificSearch> articles) {
+        return articles.stream()
+                .filter((article) -> article.Category.equals("Fruits"))
+                .min(Comparator.comparingDouble(article -> article.price))
+                .orElse(null);
+    }
+    private static SpecificSearch findMostExpensive(List<SpecificSearch> articles) {
+        return articles.stream()
+                .filter((article) ->article.Category.equals("Vegetables"))
+                .max(Comparator.comparingDouble(article -> article.price))
+                .orElse(null);
     }
 }
