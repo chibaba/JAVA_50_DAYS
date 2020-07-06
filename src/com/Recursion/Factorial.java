@@ -26,7 +26,7 @@ public class Factorial {
 
             return digit;
         } else {
-            return fibonacci(digit.subtract(BigInteger.ONE))
+            return fibonacci(digit.subtract(BigInteger.ONE));
         }
     }
 }
