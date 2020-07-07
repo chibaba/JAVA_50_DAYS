@@ -15,10 +15,18 @@ public class Alarm2 {
         sensors.add(new Gateway(18, false));
         sensors.add(new Gateway(9, false));
         Predicate<Sensor> hasAlarmOrWarning = new HasAlarm().or(new HasWarning());
+        if (sensors.stream().anyMatch(hasAlarmOrWarning)) {
+            System.out.println("Alarm or Warning was triggered");
+        }
         SendAlarm sendAlarm = new SendAlarm();
-        sensors.stream().filter(hasAlarmOrWarning).forEach(sendAlarm);
+        ResetAlarm resetAlarm = new ResetAlarm();
+        sensors.stream().filter(hasAlarmOrWarning).forEach(sendAlarm.andThen(resetAlarm));
+
         if (alarmServiceNotified) {
             System.out.println("Alarm service notified");
+        }
+        if (sensors.stream().anyMatch(hasAlarmOrWarning.negate())) {
+            System.out.println("Nothing has happened");
         }
     }
 }
