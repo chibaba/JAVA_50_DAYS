@@ -3,6 +3,7 @@ package com.ReactiveProgramming;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.SubmissionPublisher;
+import java.util.function.Supplier;
 
 public class NumberPublisher extends SubmissionPublisher <String> {
     final Timer timer = new Timer();
@@ -12,8 +13,15 @@ public class NumberPublisher extends SubmissionPublisher <String> {
 
         }
     };
-    public NumberPublisher() {
+    final Supplier<String> supplier;
+    public NumberPublisher(Supplier<String> supplier) {
+        this.supplier = supplier;
+    }
 
+    @Override
+    public void close() {
+        timer.cancel();
+        super.close();
     }
 
 }
