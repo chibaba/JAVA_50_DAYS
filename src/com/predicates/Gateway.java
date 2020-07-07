@@ -4,8 +4,12 @@ public class Gateway implements Sensor {
     private int batteryHealth;
     private  boolean triggered;
 
+    public Gateway(int batteryHealth, boolean triggered) {
+        this.batteryHealth = batteryHealth;
+        this.triggered = triggered;
+    }
 @Override
-public  int BatteryHealth() {
+public  int batteryHealth() {
     return batteryHealth;
 }
 @Override
