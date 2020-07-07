@@ -23,6 +23,9 @@ public class Alarm {
             if (new HasAlarm().test(sensor)) {
                 System.out.println("Alarm was triggered");
             }
+            if (hasAlarmOrWarning.test(sensor)) {
+                System.out.println("Alarm or Warning was triggered");
+            }
         }
 
     }

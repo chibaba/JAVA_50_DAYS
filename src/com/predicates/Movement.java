@@ -14,7 +14,7 @@ public class Movement implements Sensor {
     }
     @Override
     public boolean triggered() {
-        return isTriggered
+        return isTriggered;
     }
     @Override
     public void triggered(boolean state){

@@ -6,7 +6,8 @@ public class Fire implements Sensor {
     private int temperature;
     public Fire(int batteryHealth, boolean isTriggered, int temperature) {
         this.batteryHealth = batteryHealth;
-        this.triggered = isTriggered;
+          triggered = isTriggered;
+        this.temperature = temperature;
 
     }
 
@@ -20,8 +21,15 @@ public class Fire implements Sensor {
 
     }
     @Override
-    public void triggered(boolean state)
+    public boolean triggered() {
+        return triggered;
+    }
+    @Override
+    public void triggered(boolean state) {
 }
+
 public int temperature() {
-    return temperature;
+        return temperature;
+    }
 }
+

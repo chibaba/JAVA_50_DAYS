@@ -5,7 +5,7 @@ public class Gateway implements Sensor {
     private  boolean triggered;
 
 @Override
-public  int BatteryHealth() {
+public  int batteryHealth() {
     return batteryHealth;
 }
 @Override
