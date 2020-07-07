@@ -17,10 +17,11 @@ public class LipsumSubscriber implements Flow.Subscriber<String> {
     }
     @Override
     public void onError(Throwable throwable) {
+        System.out.println(throwable.getMessage());
 
     }
     @Override
     public void onComplete() {
-
+       System.out.println("completed");
     }
 }
