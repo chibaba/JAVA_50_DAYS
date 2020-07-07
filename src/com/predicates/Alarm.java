@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.function.Predicate;
 
 public class Alarm {
+
     public static void main(String[] args) {
         List<Sensor> sensors = new ArrayList<>();
         sensors.add(new Gateway(34, false));

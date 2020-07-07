@@ -4,6 +4,11 @@ public class Movement implements Sensor {
     private int batteryHealth;
     private boolean isTriggered;
     private int ambientLight;
+    public Movement(int batteryHealth, boolean isTriggered, int ambientLight) {
+        this.batteryHealth = batteryHealth;
+        this.isTriggered = isTriggered;
+        this.ambientLight = ambientLight;
+    }
     @Override
     public  int batteryHealth() {
         return batteryHealth;
