@@ -10,12 +10,18 @@ public class NumberPublisher extends SubmissionPublisher <String> {
     final TimerTask timerTask = new TimerTask() {
         @Override
         public void run() {
+            try {
+            submit(supplier.get());
+        } catch (Exception e) {
+                closeExceptionally(e);
+            }
 
         }
     };
     final Supplier<String> supplier;
     public NumberPublisher(Supplier<String> supplier) {
         this.supplier = supplier;
+        this.timer.schedule(timerTask, 1000, 1000);
     }
 
     @Override
