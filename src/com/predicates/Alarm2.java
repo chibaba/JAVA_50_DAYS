@@ -15,5 +15,6 @@ public class Alarm2 {
         sensors.add(new Gateway(18, false));
         sensors.add(new Gateway(9, false));
         Predicate<Sensor> hasAlarmOrWarning = new HasAlarm().or(new HasWarning());
+        SendAlarm sendAlarm = new SendAlarm();
     }
 }
